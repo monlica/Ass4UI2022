@@ -1,5 +1,6 @@
 package com.example.ass4ui2022
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
@@ -13,6 +14,8 @@ import java.util.*
 class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
     private lateinit var calendar: Calendar
 
+
+    @SuppressLint("ResourceType")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Initialize a calendar instance
         calendar = Calendar.getInstance()
@@ -21,7 +24,17 @@ class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
-        return DatePickerDialog(requireActivity(), this, year, month, day)
+        //return DatePickerDialog(requireActivity(), 2,this, year, month, day)
+        return DatePickerDialog(
+            requireContext(), // Context
+            // Put 0 to system default theme or remove this parameter
+            0, // Theme
+            this, // DatePickerDialog.OnDateSetListener
+            year, // Year
+            month, // Month of year
+            day // Day of month
+        )
+
     }
 
     // When date set and press ok button in date picker dialog

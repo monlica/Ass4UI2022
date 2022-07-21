@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding.editPassword.text?.clear()
         binding.editEmail.text?.clear()
         binding.txtBd.text = "mm / dd / yy"
+        binding.editEmail.clearFocus()
         binding.radioGroup.clearCheck()
         binding.txtResult.text = "Show Information"
 
